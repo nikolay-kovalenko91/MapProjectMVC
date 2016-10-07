@@ -1,0 +1,68 @@
+div.map-wrapper
+    div.map
+        g-map((placesOutput)="OnGetPlace($event)")
+    div.start-button
+        div.btn-group
+            a.btn.btn-success#start-button(href='#')
+                | Go!
+                a.btn.btn-success.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='false')
+                    span.caret((click)='$event.preventDefault(); isGoDropdownVisible = !isGoDropdownVisible;')
+                ul.dropdown-menu(*ngIf="isGoDropdownVisible")
+                    li
+                        a(href='#') Preferences
+div(*ngFor="let place of places")
+    div.well.search-res
+        h4 {{ place.formatted_address }}
+        div.place-wrapper
+            div.place
+                div.flex-container.place-details
+                    div.flex-element
+                        h6 Wi-Fi
+                        span 22
+                    div.flex-element
+                        h6 Work Places
+                        span 52
+                    div.flex-element
+                        h6 Cell Networks
+                        span 2
+                    div.flex-element
+                        h6 Apartments
+                        span 62
+                    div.flex-element
+                        h6 Personal Guides
+                        span 66
+                    div.flex-element
+                        h6 Sights
+                        span 21
+                    div.flex-element
+                        h6 Tours
+                        span 52
+                    div.flex-element
+                        h6 Users There
+                        span 66
+            div.place-social-interact
+                div.social-buttons
+                    img.img-circle.special-img(src='https://cdn0.iconfinder.com/data/icons/basic-ui-elements-colored/700/08_heart-2-128.png')
+                div.social-share
+                    div.btn-group.open.our-rate
+                        a.btn.btn-default.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); isRateDropdownVisible = !isRateDropdownVisible;')
+                            | Our Rate
+                            span.caret
+                        ul.dropdown-menu(*ngIf="isRateDropdownVisible")
+                            li
+                                a(href='#') Dropdown
+                            li
+                                a(href='#') Dropdown
+                            li
+                                a(href='#') Dropdown
+                    div.btn-group.open.share
+                        a.btn.btn-default.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); isShareDropdownVisible = !isShareDropdownVisible;')
+                            | Share
+                            span.caret
+                        ul.dropdown-menu(*ngIf="isShareDropdownVisible")
+                            li
+                                a(href='#') Dropdown
+                            li
+                                a(href='#') Dropdown
+                            li
+                                a(href='#') Dropdown

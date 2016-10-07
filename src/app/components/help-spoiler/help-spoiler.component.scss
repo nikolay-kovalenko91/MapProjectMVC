@@ -1,0 +1,30 @@
+.panel#ask-user {
+  & > .panel-heading {
+    background-color: #428bca;
+    border: 1px solid #5f819e;
+    h3 {
+      display: inline-block;
+    }
+    span {
+      margin-right: 10px;
+    }
+    &:hover {
+      background-color: #fff;
+      border: 1px solid #428bca;
+      h3 {
+        color: #384452;
+      }
+    }
+  }
+  .panel-body {
+    display: flex;
+    flex-wrap: wrap;
+    a.btn {
+      flex-grow: 1;
+      margin: 3px;
+      span.sub_icon {
+        margin-left: 5px;
+      }
+    }
+  }
+}
