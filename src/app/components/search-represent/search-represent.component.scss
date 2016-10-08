@@ -20,6 +20,9 @@ h4 {
     vertical-align: middle;
     margin: 0 0 0 10px;
     padding: 0;
+    .disabled {
+      background-color: gray;
+    }
     div, #start-button {
       display: inline-block;
       width: 100%;

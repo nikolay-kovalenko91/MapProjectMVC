@@ -14,9 +14,12 @@ var SearchRepresentComponent = (function () {
         this.isRateDropdownVisible = false;
         this.isShareDropdownVisible = false;
         this.isGoDropdownVisible = false;
-        this.places = [
-            { formatted_address: 'Avenida Dom João II E, Lisbon, Portugal' }
-        ];
+        this.isGoBtnDisabled = true;
+        this.places = [];
+        this.placesForRouteSearch = [];
+        /*this.places = [
+            {formatted_address: 'Avenida Dom João II E, Lisbon, Portugal'}
+        ];*/
     }
     SearchRepresentComponent.prototype.OnGetPlace = function (placesOutput) {
         var _this = this;
@@ -62,7 +65,14 @@ var SearchRepresentComponent = (function () {
             place.railwayStops.count = 10;
             this.places.push(place);
         }
-        console.log(this.places);
+        if (this.places.length > 1) {
+            this.isGoBtnDisabled = false;
+        }
+    };
+    SearchRepresentComponent.prototype.onGoClick = function () {
+        this.placesForRouteSearch = this.places;
+        this.places = [];
+        this.isGoBtnDisabled = true;
     };
     SearchRepresentComponent = __decorate([
         core_1.Component({

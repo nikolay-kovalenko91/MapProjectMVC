@@ -8,17 +8,22 @@ import {Component} from '@angular/core';
 
 export class SearchRepresentComponent {
     places: any[];
+    placesForRouteSearch: any[];
     isRateDropdownVisible: boolean;
     isShareDropdownVisible: boolean;
     isGoDropdownVisible: boolean;
+    isGoBtnDisabled: boolean;
 
     constructor(){
         this.isRateDropdownVisible = false;
         this.isShareDropdownVisible = false;
         this.isGoDropdownVisible = false;
-        this.places = [
+        this.isGoBtnDisabled = true;
+        this.places = [];
+        this.placesForRouteSearch = [];
+        /*this.places = [
             {formatted_address: 'Avenida Dom João II E, Lisbon, Portugal'}
-        ];
+        ];*/
     }
 
     OnGetPlace(placesOutput:any) {
@@ -65,7 +70,13 @@ export class SearchRepresentComponent {
             place.railwayStops.count = 10;
             this.places.push(place);
         }
-        console.log(this.places);
-
+        if (this.places.length > 1) {
+            this.isGoBtnDisabled = false;
+        }
+    }
+    onGoClick() {
+        this.placesForRouteSearch = this.places;
+        this.places = [];
+        this.isGoBtnDisabled = true;
     }
 }

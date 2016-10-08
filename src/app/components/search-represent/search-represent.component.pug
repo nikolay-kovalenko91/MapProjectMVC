@@ -1,15 +1,18 @@
 div.map-wrapper
     div.map
-        g-map((placesOutput)="OnGetPlace($event)")
+        g-map((placesOutput)="OnGetPlace($event)" #gMap)
     div.start-button
         div.btn-group
-            a.btn.btn-success#start-button(href='#')
+            a.btn.btn-success#start-button(href='#',
+                *ngIf="!isGoBtnDisabled",
+                (click)="$event.preventDefault(); onGoClick(); gMap.createPath(placesForRouteSearch);")
                 | Go!
                 a.btn.btn-success.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='false')
                     span.caret((click)='$event.preventDefault(); isGoDropdownVisible = !isGoDropdownVisible;')
                 ul.dropdown-menu(*ngIf="isGoDropdownVisible")
                     li
                         a(href='#') Preferences
+            a.btn.btn-success#start-button(*ngIf="isGoBtnDisabled" class="disabled")
 div(*ngFor="let place of places")
     div.well.search-res
         h4 {{ place.formatted_address }}

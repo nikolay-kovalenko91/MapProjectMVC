@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var GmapComponent = (function () {
     function GmapComponent(zone) {
         this.placesOutput = new core_1.EventEmitter();
+        this.map = null;
         this.zone = zone;
     }
     GmapComponent.prototype.ngOnInit = function () {
@@ -19,14 +20,14 @@ var GmapComponent = (function () {
     };
     GmapComponent.prototype.initMap = function () {
         var _this = this;
-        var map = new google.maps.Map(document.getElementById('map'), {
+        this.map = new google.maps.Map(document.getElementById('map'), {
             center: { lat: 55.7558, lng: 37.6173 },
             zoom: 2,
             mapTypeId: google.maps.MapTypeId.HYBRID
         });
         var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
         var icon = {
             //url: '',
             url: 'https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png',
@@ -43,13 +44,20 @@ var GmapComponent = (function () {
                 _this.placesOutput.emit(value);
             });
         };
-        map.addListener('bounds_changed', function () {
-            searchBox.setBounds(map.getBounds());
+        var clearPath = function () {
+            if (_this.placesForRouteSearch) {
+                _this.flightPath.setMap(null);
+            }
+        };
+        this.map.addListener('bounds_changed', function () {
+            searchBox.setBounds(_this.map.getBounds());
         });
         searchBox.addListener('places_changed', function () {
+            clearPath();
             makeMarkerForInput(); // Sends place to represent and make marker
         });
-        google.maps.event.addListener(map, 'click', function (event) {
+        google.maps.event.addListener(this.map, 'click', function (event) {
+            clearPath();
             makeMarkerForClick(event.latLng); // Sends place to represent and make marker
         });
         var makeMarkerForInput = function () {
@@ -62,7 +70,7 @@ var GmapComponent = (function () {
             places.forEach(function (place) {
                 //icon.url = place.icon,
                 markers.push(new google.maps.Marker({
-                    map: map,
+                    map: this.map,
                     icon: icon,
                     title: place.name,
                     //draggable:true,
@@ -82,7 +90,7 @@ var GmapComponent = (function () {
                             icon: icon,
                             title: 'xxx',
                             //draggable:true,
-                            map: map,
+                            map: _this.map,
                             animation: google.maps.Animation.DROP,
                         });
                         //infowindow.setContent(results[1].formatted_address);
@@ -97,6 +105,24 @@ var GmapComponent = (function () {
                 }
             });
         };
+    };
+    GmapComponent.prototype.createPath = function (placesForRouteSearch) {
+        this.placesForRouteSearch = placesForRouteSearch;
+        var flightPlanCoordinates = [];
+        placesForRouteSearch.forEach(function (element) {
+            flightPlanCoordinates.push({
+                lat: element.geometry.location.lat(),
+                lng: element.geometry.location.lng()
+            });
+        });
+        this.flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: true,
+            strokeColor: '#17C802',
+            strokeOpacity: 1.0,
+            strokeWeight: 3
+        });
+        this.flightPath.setMap(this.map);
     };
     GmapComponent = __decorate([
         core_1.Component({

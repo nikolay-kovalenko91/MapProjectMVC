@@ -11,6 +11,9 @@ declare var google: any;
 export class GmapComponent implements OnInit{
     public placesOutput = new EventEmitter<any>();
     public places: any[];
+    private map: any = null;
+    private flightPath: any;
+    private placesForRouteSearch: any[];
     zone: NgZone;
     constructor(zone:NgZone) {
         this.zone = zone;
@@ -21,7 +24,7 @@ export class GmapComponent implements OnInit{
     }
 
     initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
+        this.map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 55.7558, lng: 37.6173},
             zoom: 2,
             mapTypeId: google.maps.MapTypeId.HYBRID
@@ -29,7 +32,7 @@ export class GmapComponent implements OnInit{
 
         var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
         var icon = {
             //url: '',
             url :'https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png',
@@ -46,14 +49,21 @@ export class GmapComponent implements OnInit{
                 this.placesOutput.emit(value);
             });
         };
+        var clearPath = () => {
+            if (this.placesForRouteSearch) {
+                this.flightPath.setMap(null);
+            }
+        };
 
-        map.addListener('bounds_changed', function() {
-            searchBox.setBounds(map.getBounds());
+        this.map.addListener('bounds_changed', () => {
+            searchBox.setBounds(this.map.getBounds());
         });
         searchBox.addListener('places_changed', () => {
+            clearPath();
             makeMarkerForInput(); // Sends place to represent and make marker
         });
-        google.maps.event.addListener(map, 'click', (event) => {
+        google.maps.event.addListener(this.map, 'click', (event) => {
+            clearPath();
             makeMarkerForClick(event.latLng); // Sends place to represent and make marker
         });
         var makeMarkerForInput = () => {
@@ -66,7 +76,7 @@ export class GmapComponent implements OnInit{
             places.forEach(function(place) {
                 //icon.url = place.icon,
                 markers.push(new google.maps.Marker({
-                    map: map,
+                    map: this.map,
                     icon: icon,
                     title: place.name,
                     //draggable:true,
@@ -86,7 +96,7 @@ export class GmapComponent implements OnInit{
                             icon: icon,
                             title: 'xxx',
                             //draggable:true,
-                            map: map,
+                            map: this.map,
                             animation: google.maps.Animation.DROP,
                         });
                         //infowindow.setContent(results[1].formatted_address);
@@ -101,6 +111,28 @@ export class GmapComponent implements OnInit{
                 }
             });
         };
+    }
+    createPath(placesForRouteSearch: any[]) {
+        this.placesForRouteSearch = placesForRouteSearch;
+        let flightPlanCoordinates: {
+            lat: number,
+            lng: number
+        }[] = [];
+        placesForRouteSearch.forEach(element => {
+            flightPlanCoordinates.push({
+                lat: element.geometry.location.lat(),
+                lng: element.geometry.location.lng()
+            });
+        });
+
+        this.flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: true,
+            strokeColor: '#17C802',
+            strokeOpacity: 1.0,
+            strokeWeight: 3
+        });
+        this.flightPath.setMap(this.map);
     }
 
 }
