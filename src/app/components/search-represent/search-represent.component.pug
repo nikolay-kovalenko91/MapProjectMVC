@@ -1,71 +1,63 @@
 div.map-wrapper
     div.map
-        g-map((placesOutput)="OnGetPlace($event)" #gMap)
+        g-map((placesOutput)="OnGetPlace($event);" #gMap)
     div.start-button
         div.btn-group
-            a.btn.btn-success#start-button(href='#',
+            a.btn.btn-success#start-button(
+                href='#',
                 *ngIf="!isGoBtnDisabled",
-                (click)="$event.preventDefault(); onGoClick(); gMap.createPath(placesForRouteSearch);")
+                (click)=" onGoClick(); gMap.createPath(placesForRouteSearch);")
                 | Go!
-                a.btn.btn-success.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='false')
-                    span.caret((click)='$event.preventDefault(); isGoDropdownVisible = !isGoDropdownVisible;')
-                ul.dropdown-menu(*ngIf="isGoDropdownVisible")
-                    li
-                        a(href='#') Preferences
+            a.btn.btn-success.dropdown-toggle(
+                href='#',
+                *ngIf="!isGoBtnDisabled",
+                data-toggle='dropdown',
+                aria-expanded='false',
+                (click)='$event.preventDefault(); isGoPreferencesVisible = !isGoPreferencesVisible;')
+                span.caret
             a.btn.btn-success#start-button(*ngIf="isGoBtnDisabled" class="disabled")
-div(*ngFor="let place of places")
-    div.well.search-res
-        h4 {{ place.formatted_address }}
-        div.place-wrapper
-            div.place
-                div.flex-container.place-details
-                    div.flex-element
-                        h6 Wi-Fi
-                        span 22
-                    div.flex-element
-                        h6 Work Places
-                        span 52
-                    div.flex-element
-                        h6 Cell Networks
-                        span 2
-                    div.flex-element
-                        h6 Apartments
-                        span 62
-                    div.flex-element
-                        h6 Personal Guides
-                        span 66
-                    div.flex-element
-                        h6 Sights
-                        span 21
-                    div.flex-element
-                        h6 Tours
-                        span 52
-                    div.flex-element
-                        h6 Users There
-                        span 66
-            div.place-social-interact
-                div.social-buttons
-                    img.img-circle.special-img(src='https://cdn0.iconfinder.com/data/icons/basic-ui-elements-colored/700/08_heart-2-128.png')
-                div.social-share
-                    div.btn-group.open.our-rate
-                        a.btn.btn-default.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); isRateDropdownVisible = !isRateDropdownVisible;')
-                            | Our Rate
-                            span.caret
-                        ul.dropdown-menu(*ngIf="isRateDropdownVisible")
-                            li
-                                a(href='#') Dropdown
-                            li
-                                a(href='#') Dropdown
-                            li
-                                a(href='#') Dropdown
-                    div.btn-group.open.share
-                        a.btn.btn-default.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); isShareDropdownVisible = !isShareDropdownVisible;')
-                            | Share
-                            span.caret
-                        ul.dropdown-menu(*ngIf="isShareDropdownVisible")
-                            li
-                                a(href='#') Dropdown
-                            li
-                                a(href='#') Dropdown
-                            li
-                                a(href='#') Dropdown
+place-info-spoiler
+founded-routes-spoiler
+
+div.modal#go-preferences(*ngIf='isGoPreferencesVisible')
+    div.modal-dialog
+        div.modal-content
+            div.modal-header
+                button.close(type="button", data-dismiss="modal",aria-hidden="true", (click)='isGoPreferencesVisible = !isGoPreferencesVisible;') ×
+                h4.modal-title Preferences
+            div.modal-body
+                div.input-group
+                    span.input-group-addon $
+                    input.form-control(type="text", placeholder="Max expences on road")
+                div.col-lg-10
+                    h6 Routes
+                    div.radio
+                        label
+                            input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="checked")
+                            | All Routes
+                    div.radio
+                        label
+                            input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="")
+                            | The Most Cheapest
+                    div.radio
+                        label
+                            input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="")
+                            | The Most Shortest
+                div.col-lg-10
+                    h6 Transportation
+                    div.radio
+                        label
+                            input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="")
+                            | Exclude Buses
+                    div.radio
+                        label
+                            input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="")
+                            | Exclude Airplanes
+                    div.radio
+                        label
+                            input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="")
+                            | Exclude Smth Else
+
+            div.modal-footer
+                button.btn.btn-default(type="button", data-dismiss="modal", (click)='isGoPreferencesVisible = !isGoPreferencesVisible;') Close
+                button.btn.btn-primary(type="button", (click)=" onGoClick(); gMap.createPath(placesForRouteSearch);") Go Next!

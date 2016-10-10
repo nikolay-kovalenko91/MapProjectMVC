@@ -37,7 +37,6 @@ var GmapComponent = (function () {
             scaledSize: new google.maps.Size(35, 35)
         };
         var markers = [];
-        var places = [];
         var geocoder = new google.maps.Geocoder;
         var sendPlaceToParent = function (value) {
             _this.zone.run(function () {
@@ -70,7 +69,7 @@ var GmapComponent = (function () {
             places.forEach(function (place) {
                 //icon.url = place.icon,
                 markers.push(new google.maps.Marker({
-                    map: this.map,
+                    map: _this.map,
                     icon: icon,
                     title: place.name,
                     //draggable:true,
@@ -117,7 +116,7 @@ var GmapComponent = (function () {
         });
         this.flightPath = new google.maps.Polyline({
             path: flightPlanCoordinates,
-            geodesic: true,
+            geodesic: false,
             strokeColor: '#17C802',
             strokeOpacity: 1.0,
             strokeWeight: 3

@@ -42,7 +42,6 @@ export class GmapComponent implements OnInit{
             scaledSize: new google.maps.Size(35, 35)
         };
         var markers = [];
-        var places = [];
         var geocoder = new google.maps.Geocoder;
         var sendPlaceToParent = (value: any) => {
             this.zone.run(() => {
@@ -73,7 +72,7 @@ export class GmapComponent implements OnInit{
                 return;
             }
             //var bounds = new google.maps.LatLngBounds();
-            places.forEach(function(place) {
+            places.forEach((place) => {
                 //icon.url = place.icon,
                 markers.push(new google.maps.Marker({
                     map: this.map,
@@ -127,7 +126,7 @@ export class GmapComponent implements OnInit{
 
         this.flightPath = new google.maps.Polyline({
             path: flightPlanCoordinates,
-            geodesic: true,
+            geodesic: false,
             strokeColor: '#17C802',
             strokeOpacity: 1.0,
             strokeWeight: 3

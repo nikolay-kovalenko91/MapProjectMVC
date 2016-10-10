@@ -17,6 +17,8 @@ var g_map_component_1 = require("./components/g-map/g-map.component");
 var search_represent_component_1 = require("./components/search-represent/search-represent.component");
 var help_spoiler_component_1 = require("./components/help-spoiler/help-spoiler.component");
 var sidebar_component_1 = require("./components/sidebar/sidebar.component");
+var place_info_spoiler_component_1 = require("./components/place-info-spoiler/place-info-spoiler.component");
+var founded_routes_spoiler_component_1 = require("./components/founded-routes-spoiler/founded-routes-spoiler.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,7 +34,9 @@ var AppModule = (function () {
                 g_map_component_1.GmapComponent,
                 search_represent_component_1.SearchRepresentComponent,
                 help_spoiler_component_1.HelpSpoilerComponent,
-                sidebar_component_1.SidebarComponent
+                sidebar_component_1.SidebarComponent,
+                place_info_spoiler_component_1.PlaceInfoSpoilerComponent,
+                founded_routes_spoiler_component_1.FoundedRoutesSpoilerComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

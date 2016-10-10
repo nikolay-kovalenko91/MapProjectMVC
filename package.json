@@ -44,9 +44,4 @@
     "webpack-md5-hash": "0.0.5"
   }
 }
-/*
-npm install pug
-npm install loader-utils
-npm i pug-ng-html-loader
-npm install pug-plugin-ng
-*/
+

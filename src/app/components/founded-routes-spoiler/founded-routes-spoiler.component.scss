@@ -1,0 +1,54 @@
+.well {
+  padding: 10px;
+  .routeDesc {
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .main-col {
+      flex-basis: 80%;
+      .users {
+        width: 100%;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .avatars {
+        img {
+          height: 35px;
+          width: 35px;
+          margin: 0 5px 0 0;
+        }
+      }
+    }
+    .right-col {
+      flex-basis: 19%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background-color: #fff;
+      padding: 5px;
+      margin: 7px 0 0 5px;
+      border-radius: 5px;
+      #bla-bla-car {
+        display: block;
+        height: 35px;
+        width: 100px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        &:hover {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        &:active {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+      }
+      #bla-bla-car, .btn {
+        margin: 10px auto;
+      }
+    }
+  }
+}

@@ -8,6 +8,8 @@ import {GmapComponent} from "./components/g-map/g-map.component";
 import {SearchRepresentComponent} from "./components/search-represent/search-represent.component";
 import {HelpSpoilerComponent} from "./components/help-spoiler/help-spoiler.component";
 import {SidebarComponent} from "./components/sidebar/sidebar.component";
+import {PlaceInfoSpoilerComponent} from "./components/place-info-spoiler/place-info-spoiler.component";
+import {FoundedRoutesSpoilerComponent} from "./components/founded-routes-spoiler/founded-routes-spoiler.component";
 
 @NgModule({
     imports:      [
@@ -20,7 +22,9 @@ import {SidebarComponent} from "./components/sidebar/sidebar.component";
         GmapComponent,
         SearchRepresentComponent,
         HelpSpoilerComponent,
-        SidebarComponent
+        SidebarComponent,
+        PlaceInfoSpoilerComponent,
+        FoundedRoutesSpoilerComponent
     ],
     bootstrap:    [ AppComponent ]
 })

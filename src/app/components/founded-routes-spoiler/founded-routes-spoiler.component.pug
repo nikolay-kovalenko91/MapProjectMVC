@@ -1,0 +1,29 @@
+div.well(*ngIf="foundedRoutes.length >= 1")
+    div.routeDesc(*ngFor="let route of foundedRoutes")
+        div.main-col
+            div.desc
+                h4 {{ route }}
+            div.users
+                h6 Users Search The Same Route
+                div.avatars
+                    img.img-circle.special-img(src='https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR9oxPWNVNeft3FUi6u6J7qldYROnqJxX08Cnhsz6isYdtujeKy')
+                    img.img-circle.special-img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpBTsG7iYnlWEbU-e536b_ZDzaEkpSxEa9MDwXVyIZtDJZ-ikt')
+                    img.img-circle.special-img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThseiGdu2N7VlUOj4MY1kovXAKK52SRdLwoqV-TinUVo-kiF6iBw')
+                    img.img-circle.special-img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUo1kyYk7aWhhQivE-4nxz2tfl3EhLUs5Yl4ESVJJItRFsFVuZgw')
+                    img.img-circle.special-img(src='https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTFd2vWiIxXsnj8yyBBWcqzDnwDdk840sew3ALyEL9IGd4RW97Y')
+                    img.img-circle.special-img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpBTsG7iYnlWEbU-e536b_ZDzaEkpSxEa9MDwXVyIZtDJZ-ikt')
+        div.right-col
+            img.img-circle.special-img#bla-bla-car(src='https://www.blablacar.com/images/blablacar-ridesharing-logo.png')
+
+            div.btn-group.open.share
+                a.btn.btn-primary.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); route.isShareDropdownVisible = !route.isShareDropdownVisible;')
+                    | Share
+                    span.caret
+                ul.dropdown-menu(*ngIf="route.isShareDropdownVisible")
+                    li
+                        a(href='#') Facebook
+                    li
+                        a(href='#') Twitter
+                    li
+                        a(href='#') VK
+

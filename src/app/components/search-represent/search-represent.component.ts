@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component,AfterViewInit,ViewChild} from '@angular/core';
+import {PlaceInfoSpoilerComponent} from "../place-info-spoiler/place-info-spoiler.component";
+import {FoundedRoutesSpoilerComponent} from "../founded-routes-spoiler/founded-routes-spoiler.component";
 
 @Component({
     selector: 'search-represent',
@@ -6,7 +8,7 @@ import {Component} from '@angular/core';
     styles: [require('./search-represent.component.scss').toString()]
 })
 
-export class SearchRepresentComponent {
+export class SearchRepresentComponent implements AfterViewInit{
     places: any[];
     placesForRouteSearch: any[];
     isRateDropdownVisible: boolean;
@@ -14,69 +16,45 @@ export class SearchRepresentComponent {
     isGoDropdownVisible: boolean;
     isGoBtnDisabled: boolean;
 
+    @ViewChild(PlaceInfoSpoilerComponent)
+    private placeSpoilerComponent: PlaceInfoSpoilerComponent;
+    @ViewChild(FoundedRoutesSpoilerComponent)
+    private routesSpoilerComponent: FoundedRoutesSpoilerComponent;
+
+    ngAfterViewInit() {
+    }
+    showInfo(place) { this.placeSpoilerComponent.showInfo(place); }
+    showRoutes(placesForRouteSearch) { this.routesSpoilerComponent.showRoutes(placesForRouteSearch); }
+
     constructor(){
         this.isRateDropdownVisible = false;
         this.isShareDropdownVisible = false;
         this.isGoDropdownVisible = false;
         this.isGoBtnDisabled = true;
-        this.places = [];
         this.placesForRouteSearch = [];
-        /*this.places = [
-            {formatted_address: 'Avenida Dom João II E, Lisbon, Portugal'}
-        ];*/
     }
 
     OnGetPlace(placesOutput:any) {
-        //placesOutput: array of places, but now I suggest to use only one place from the whole bunch
+         //placesOutput: array of places, but now I suggest to use only one place from the whole bunch
+        this.placeSpoilerComponent.isPlaceInfoSpoilerVisible = true;
         if (placesOutput instanceof Array) {
             placesOutput.forEach((place) => {
-                place.wifi = {},
-                place.cells = {},
-                place.rates = {},
-                place.couchserfers = {},
-                place.apartments = {},
-                place.aeroports = {},
-                place.busStops= {},
-                place.railwayStops= {};
-
-                place.wifi.count = 20;
-                place.cells.count = 10;
-                place.rates.usual = 5.0;
-                place.couchserfers.count = 50;
-                place.apartments.count = 50;
-                place.aeroports.count = 10;
-                place.busStops.count = 10;
-                place.railwayStops.count = 10;
-                this.places.push(place);
+                this.showInfo(place);
+                this.placesForRouteSearch.push(place);
             });
         } else {
             let place = placesOutput;
-            place.wifi = {},
-            place.cells = {},
-            place.rates = {},
-            place.couchserfers = {},
-            place.apartments = {},
-            place.aeroports = {},
-            place.busStops= {},
-            place.railwayStops= {};
-
-            place.wifi.count = 20;
-            place.cells.count = 10;
-            place.rates.usual = 5.0;
-            place.couchserfers.count = 50;
-            place.apartments.count = 50;
-            place.aeroports.count = 10;
-            place.busStops.count = 10;
-            place.railwayStops.count = 10;
-            this.places.push(place);
+            this.showInfo(place);
+            this.placesForRouteSearch.push(place);
         }
-        if (this.places.length > 1) {
+        if (this.placesForRouteSearch.length > 1) {
             this.isGoBtnDisabled = false;
         }
+
     }
     onGoClick() {
-        this.placesForRouteSearch = this.places;
-        this.places = [];
         this.isGoBtnDisabled = true;
+        this.placeSpoilerComponent.isPlaceInfoSpoilerVisible = false;
+        this.showRoutes(this.placesForRouteSearch);
     }
 }
