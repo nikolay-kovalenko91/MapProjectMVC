@@ -29,11 +29,16 @@ div.panel.panel-primary.autocollapse#place-info(*ngIf='places.length >= 1')
                                 h6 Tours
                                 span 52
                             div.flex-element
+                                h6 Shops
+                                span 121
+                            div.flex-element
                                 h6 Users There
                                 span 66
                     div.place-social-interact
                         div.social-buttons
-                            img.img-circle.special-img(src='https://cdn0.iconfinder.com/data/icons/basic-ui-elements-colored/700/08_heart-2-128.png')
+                            div.like-button-wrapper
+                                img.img-circle.special-img.like-button(src='https://cdn0.iconfinder.com/data/icons/basic-ui-elements-colored/700/08_heart-2-128.png')
+                                span.label.label-danger I Was There
                         div.social-share
                             div.btn-group.open.our-rate
                                 a.btn.btn-default.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); place.isRateDropdownVisible = !place.isRateDropdownVisible;')

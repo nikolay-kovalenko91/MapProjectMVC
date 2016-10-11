@@ -19,6 +19,8 @@ var help_spoiler_component_1 = require("./components/help-spoiler/help-spoiler.c
 var sidebar_component_1 = require("./components/sidebar/sidebar.component");
 var place_info_spoiler_component_1 = require("./components/place-info-spoiler/place-info-spoiler.component");
 var founded_routes_spoiler_component_1 = require("./components/founded-routes-spoiler/founded-routes-spoiler.component");
+var app_routing_1 = require("./app.routing");
+var category_viewer_component_1 = require("./components/category-viewer/category-viewer.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,7 +28,8 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                http_1.HttpModule
+                http_1.HttpModule,
+                app_routing_1.routing
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -36,7 +39,8 @@ var AppModule = (function () {
                 help_spoiler_component_1.HelpSpoilerComponent,
                 sidebar_component_1.SidebarComponent,
                 place_info_spoiler_component_1.PlaceInfoSpoilerComponent,
-                founded_routes_spoiler_component_1.FoundedRoutesSpoilerComponent
+                founded_routes_spoiler_component_1.FoundedRoutesSpoilerComponent,
+                category_viewer_component_1.CategoryViewerComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

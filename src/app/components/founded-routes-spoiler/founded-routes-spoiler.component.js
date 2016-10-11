@@ -18,9 +18,8 @@ var FoundedRoutesSpoilerComponent = (function () {
         this.foundedRoutes = [];
         this.placesForRouteSearch = placesForRouteSearch;
         for (var i = 0; i < placesForRouteSearch.length - 1; i++) {
-            this.foundedRoutes.push('Avia - S7 - 4h 30m - 500$ ->');
+            this.foundedRoutes.push(['Avia - S7 - 2h 30m - 500$ ->', 'Bus - EuroBus - 30h 10m - 320$ ->', 'Train - EuroTrain - 25h 10m - 420$ ->']);
         }
-        console.log(this.foundedRoutes);
     };
     FoundedRoutesSpoilerComponent = __decorate([
         core_1.Component({

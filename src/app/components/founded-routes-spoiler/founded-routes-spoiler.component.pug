@@ -1,8 +1,9 @@
 div.well(*ngIf="foundedRoutes.length >= 1")
-    div.routeDesc(*ngFor="let route of foundedRoutes")
+    div.routeDesc(*ngFor="let routeWays of foundedRoutes")
         div.main-col
             div.desc
-                h4 {{ route }}
+                div(*ngFor="let route of routeWays")
+                    h6 {{ route }}
             div.users
                 h6 Users Search The Same Route
                 div.avatars
@@ -16,10 +17,10 @@ div.well(*ngIf="foundedRoutes.length >= 1")
             img.img-circle.special-img#bla-bla-car(src='https://www.blablacar.com/images/blablacar-ridesharing-logo.png')
 
             div.btn-group.open.share
-                a.btn.btn-primary.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); route.isShareDropdownVisible = !route.isShareDropdownVisible;')
+                a.btn.btn-info.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); routeWays.isShareDropdownVisible = !routeWays.isShareDropdownVisible;')
                     | Share
                     span.caret
-                ul.dropdown-menu(*ngIf="route.isShareDropdownVisible")
+                ul.dropdown-menu(*ngIf="routeWays.isShareDropdownVisible")
                     li
                         a(href='#') Facebook
                     li

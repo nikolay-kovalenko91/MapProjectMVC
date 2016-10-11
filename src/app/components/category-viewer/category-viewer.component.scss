@@ -1,0 +1,53 @@
+.well {
+  text-align: center;
+  .wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    .content {
+      flex-basis: 75%;
+      .description {
+        text-align: justify;
+        padding: 10px 0;
+      }
+    }
+    .social {
+      flex-basis: 25%;
+
+      .like-button-wrapper {
+        margin: 0 auto 20px;
+        .like-button {
+          display: block;
+          margin: 0 auto 10px;
+          height: 35px;
+          width: 35px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          &:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          }
+          &:active {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          }
+        }
+      }
+      h4 {
+        margin: 0;
+        .label {
+          display: block;
+          width: 60%;
+          margin: 0 auto 1px;
+          .badge {
+            margin-left: 10px;
+          }
+        }
+      }
+      .list-group {
+        width: 80%;
+        margin: 15px auto 10px;
+        .list-group-item {
+          padding: 7px 15px;
+        }
+      }
+    }
+  }
+}

@@ -10,11 +10,14 @@ import {HelpSpoilerComponent} from "./components/help-spoiler/help-spoiler.compo
 import {SidebarComponent} from "./components/sidebar/sidebar.component";
 import {PlaceInfoSpoilerComponent} from "./components/place-info-spoiler/place-info-spoiler.component";
 import {FoundedRoutesSpoilerComponent} from "./components/founded-routes-spoiler/founded-routes-spoiler.component";
+import {routing} from "./app.routing";
+import {CategoryViewerComponent} from "./components/category-viewer/category-viewer.component";
 
 @NgModule({
     imports:      [
         BrowserModule,
-        HttpModule
+        HttpModule,
+        routing
     ],
     declarations: [
         AppComponent,
@@ -24,7 +27,8 @@ import {FoundedRoutesSpoilerComponent} from "./components/founded-routes-spoiler
         HelpSpoilerComponent,
         SidebarComponent,
         PlaceInfoSpoilerComponent,
-        FoundedRoutesSpoilerComponent
+        FoundedRoutesSpoilerComponent,
+        CategoryViewerComponent
     ],
     bootstrap:    [ AppComponent ]
 })

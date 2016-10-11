@@ -1,10 +1,10 @@
 div.panel.panel-primary.autocollapse#ask-user
-    div.panel-heading.clickable((mouseenter)="isHelpSpoilerVisible = !isHelpSpoilerVisible;")
+    div.panel-heading.clickable((click)="isHelpSpoilerVisible = !isHelpSpoilerVisible;")
         span.sub_icon.glyphicon.glyphicon-search
         h3.panel-title
             | How can I help you?
     div.panel-body(*ngIf="isHelpSpoilerVisible")
-        a.btn.btn-info(href='#') CLASSIC
+        a.btn.btn-info(href='#', routerLink='/category/1', routerLinkActive="active") CLASSIC
             span.sub_icon.glyphicon.glyphicon-glass
         a.btn.btn-info(href='#') ROMANTIC
             span.sub_icon.glyphicon.glyphicon-heart

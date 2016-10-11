@@ -5,6 +5,7 @@ h4 {
   padding: 0 19px 5px;
   margin: 10px 0 0 0;
   text-align: right;
+  border-color: #8098a3;
 }
 
 #place-info {
@@ -23,17 +24,25 @@ h4 {
       .social-buttons {
         flex-basis: 55px;
         flex-grow: 1;
-        img {
-          display: block;
-          margin: 10px auto;
-          height: 35px;
-          width: 35px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-          &:hover {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          }
-          &:active {
+        .like-button-wrapper {
+          margin: 0 auto 5px;
+          .like-button {
+            display: block;
+            margin: 10px auto 7px;
+            height: 35px;
+            width: 35px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            &:hover {
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            &:active {
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+          }
+          .label {
+            display: block;
+            width: 70%;
+            margin: 0 auto;
           }
         }
       }

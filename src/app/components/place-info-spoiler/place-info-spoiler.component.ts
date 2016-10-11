@@ -18,7 +18,7 @@ export class PlaceInfoSpoilerComponent {
     showInfo(place: any) {
         place.wifi = {},
         place.cells = {},
-        place.rates = {},
+        place.shops = {},
         place.couchserfers = {},
         place.apartments = {},
         place.aeroports = {},
@@ -27,7 +27,7 @@ export class PlaceInfoSpoilerComponent {
 
         place.wifi.count = 20;
         place.cells.count = 10;
-        place.rates.usual = 5.0;
+        place.shops.usual = 5.0;
         place.couchserfers.count = 50;
         place.apartments.count = 50;
         place.aeroports.count = 10;
@@ -35,6 +35,5 @@ export class PlaceInfoSpoilerComponent {
         place.railwayStops.count = 10;
 
         this.places.push(place);
-        console.log(this.places);
     }
 }

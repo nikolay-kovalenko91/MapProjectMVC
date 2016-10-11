@@ -17,7 +17,7 @@ var PlaceInfoSpoilerComponent = (function () {
     PlaceInfoSpoilerComponent.prototype.showInfo = function (place) {
         place.wifi = {},
             place.cells = {},
-            place.rates = {},
+            place.shops = {},
             place.couchserfers = {},
             place.apartments = {},
             place.aeroports = {},
@@ -25,14 +25,13 @@ var PlaceInfoSpoilerComponent = (function () {
             place.railwayStops = {};
         place.wifi.count = 20;
         place.cells.count = 10;
-        place.rates.usual = 5.0;
+        place.shops.usual = 5.0;
         place.couchserfers.count = 50;
         place.apartments.count = 50;
         place.aeroports.count = 10;
         place.busStops.count = 10;
         place.railwayStops.count = 10;
         this.places.push(place);
-        console.log(this.places);
     };
     PlaceInfoSpoilerComponent = __decorate([
         core_1.Component({

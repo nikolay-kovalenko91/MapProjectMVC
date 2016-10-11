@@ -1,0 +1,75 @@
+div.well
+    div.panel.panel-default(*ngFor="let article of placeArticles")
+        div.panel-body
+            h2 {{article.title}}
+            div.wrapper.well.well-sm
+                div.content
+                    div.image
+                        img(src="{{ article.imageUrl }}")
+                    div.description
+                        | {{ article.description }}
+                div.social
+                    div.like-button-wrapper
+                        img.img-circle.special-img.like-button(src='https://cdn0.iconfinder.com/data/icons/basic-ui-elements-colored/700/08_heart-2-128.png')
+                        span.label.label-danger I Was There
+
+                    h4
+                        span.label.label-info Classic
+                            span.badge {{article.place.rates[1]}}
+                    h4
+                        span.label.label-info Romantic
+                            span.badge {{article.place.rates[2]}}
+                    h4
+                        span.label.label-success Museums & Art
+                            span.badge {{article.place.rates[3]}}
+                    h4
+                        span.label.label-success Perfomances
+                            span.badge {{article.place.rates[4]}}
+                    h4
+                        span.label.label-warning Active
+                            span.badge {{article.place.rates[5]}}
+                    h4
+                        span.label.label-warning Extreme
+                            span.badge {{article.place.rates[6]}}
+
+                    ul.list-group
+                        li.list-group-item
+                            span.badge {{article.place.wifi.count}}
+                            | Wi-Fi
+                        li.list-group-item
+                            span.badge {{article.place.workPlaces.count}}
+                            | Work Places
+                        li.list-group-item
+                            span.badge {{article.place.cells.count}}
+                            | Cell Networks
+                        li.list-group-item
+                            span.badge {{article.place.apartments.count}}
+                            | Apartments
+                        li.list-group-item
+                            span.badge {{article.place.guides.count}}
+                            | Personal Guides
+                        li.list-group-item
+                            span.badge {{article.place.sights.count}}
+                            | Sights
+                        li.list-group-item
+                            span.badge {{article.place.tours.count}}
+                            | Tours
+                        li.list-group-item
+                            span.badge {{article.place.shops.count}}
+                            | Shops
+                        li.list-group-item
+                            span.badge {{article.place.users.count}}
+                            | Users There
+
+                    a.btn.btn-default(href="{{ article.tripadviserUrl }}", role="button") On TripAdviser
+                    div.btn-group.open.share
+                        a.btn.btn-info.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); article.isShareDropdownVisible = !article.isShareDropdownVisible;')
+                            | Share
+                            span.caret
+                        ul.dropdown-menu(*ngIf="article.isShareDropdownVisible")
+                            li
+                                a(href='#') Facebook
+                            li
+                                a(href='#') Twitter
+                            li
+                                a(href='#') VK

@@ -1,14 +1,19 @@
 .well {
   padding: 10px;
   .routeDesc {
-    padding: 10px;
+    margin-top: 10px;
     text-align: left;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     flex-wrap: wrap;
+    border: 1px solid #8098a3;
+    border-radius: 5px;
     .main-col {
-      flex-basis: 80%;
+      flex-basis: 85%;
+      h6,h5,h4 {
+        margin-left: 10px;
+      }
       .users {
         width: 100%;
         background-color: #fff;
@@ -24,7 +29,7 @@
       }
     }
     .right-col {
-      flex-basis: 19%;
+      flex-basis: 14%;
       display: flex;
       flex-direction: column;
       align-items: center;

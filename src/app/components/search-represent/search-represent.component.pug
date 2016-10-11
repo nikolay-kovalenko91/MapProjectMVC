@@ -60,4 +60,4 @@ div.modal#go-preferences(*ngIf='isGoPreferencesVisible')
 
             div.modal-footer
                 button.btn.btn-default(type="button", data-dismiss="modal", (click)='isGoPreferencesVisible = !isGoPreferencesVisible;') Close
-                button.btn.btn-primary(type="button", (click)=" onGoClick(); gMap.createPath(placesForRouteSearch);") Go Next!
+                button.btn.btn-primary(type="button", (click)=" onGoClick(); gMap.createPath(placesForRouteSearch); isGoPreferencesVisible = !isGoPreferencesVisible;") Go Next!
