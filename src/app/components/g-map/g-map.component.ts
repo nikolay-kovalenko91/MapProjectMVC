@@ -101,6 +101,7 @@ export class GmapComponent implements OnInit{
                         //infowindow.setContent(results[1].formatted_address);
                         //infowindow.open(map, marker);
                         markers.push(marker);
+                        results[1].geometry.location = location; // Exact coordinates by click
                         sendPlaceToParent(results[1]); // sends it to the parent element
                     } else {
                         //window.alert('No results found');

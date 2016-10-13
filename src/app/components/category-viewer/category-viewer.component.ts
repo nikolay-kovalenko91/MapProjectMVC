@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {PlaceArticle} from "../PlaceArticle";
+import {PlaceArticle} from "../../classes/PlaceArticle";
 
 @Component({
     selector: 'category-viewer',
