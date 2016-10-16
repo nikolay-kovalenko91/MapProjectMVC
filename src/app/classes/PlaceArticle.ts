@@ -3,6 +3,7 @@ export class PlaceArticle {
     title: string;
     category: number;
     tripadviserUrl: string;
+    imageUrl: string;
     description: string;
     place: {
         wifi: {
@@ -32,9 +33,6 @@ export class PlaceArticle {
             count: number;
         },
         railwayStops: {
-            count: number;
-        },
-        shops: {
             count: number;
         },
         sights: {

@@ -61,9 +61,6 @@ export class CategoryViewerComponent {
                     guides: {
                         count: 22,
                     },
-                    shops: {
-                        count: 22,
-                    },
                     users: {
                         count: 22,
                     }
@@ -116,9 +113,6 @@ export class CategoryViewerComponent {
                         count: 43,
                     },
                     guides: {
-                        count: 22,
-                    },
-                    shops: {
                         count: 22,
                     },
                     users: {
