@@ -9,3 +9,4 @@ http://maketrip.wixsite.com/land
 
 1) npm i
 2) npm start
+3) открыть приложение по адресу http://localhost:8080/
