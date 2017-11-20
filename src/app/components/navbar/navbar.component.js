@@ -16,6 +16,7 @@ var NavbarComponent = (function () {
         core_1.Component({
             selector: 'navbar',
             template: require('./navbar.component.pug'),
+            styles: [require('./navbar.component.scss').toString()]
         }), 
         __metadata('design:paramtypes', [])
     ], NavbarComponent);

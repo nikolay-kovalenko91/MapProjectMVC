@@ -14,7 +14,7 @@ var CategoryViewerComponent = (function () {
         this.placeArticles = [
             {
                 id: 0,
-                title: 'Berlin',
+                title: 'Берлин',
                 category: 1,
                 imageUrl: 'https://media-cdn.tripadvisor.com/media/photo-s/03/9b/2d/b5/berlin.jpg',
                 tripadviserUrl: 'https://www.tripadvisor.ru',
@@ -68,7 +68,7 @@ var CategoryViewerComponent = (function () {
             },
             {
                 id: 1,
-                title: 'Reichstag',
+                title: 'Рейхстаг',
                 category: 1,
                 imageUrl: 'https://media-cdn.tripadvisor.com/media/photo-w/01/e3/2d/15/bundestag.jpg',
                 tripadviserUrl: 'https://www.tripadvisor.ru',

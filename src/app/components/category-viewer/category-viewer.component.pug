@@ -11,25 +11,25 @@ div.well
                 div.social
                     div.like-button-wrapper
                         img.img-circle.special-img.like-button(src='https://cdn0.iconfinder.com/data/icons/basic-ui-elements-colored/700/08_heart-2-128.png')
-                        span.label.label-danger I Was There
+                        span.label.label-danger Я был тут
 
                     h4
-                        span.label.label-info Classic
+                        span.label.label-info Классика
                             span.badge {{article.place.rates[1]}}
                     h4
-                        span.label.label-info Romantic
+                        span.label.label-info Романтика
                             span.badge {{article.place.rates[2]}}
                     h4
-                        span.label.label-success Museums & Art
+                        span.label.label-success Экскурсии
                             span.badge {{article.place.rates[3]}}
                     h4
-                        span.label.label-success Perfomances
+                        span.label.label-success Выступления
                             span.badge {{article.place.rates[4]}}
                     h4
-                        span.label.label-warning Active
+                        span.label.label-warning Активное
                             span.badge {{article.place.rates[5]}}
                     h4
-                        span.label.label-warning Extreme
+                        span.label.label-warning Экстрим
                             span.badge {{article.place.rates[6]}}
 
                     ul.list-group
@@ -38,30 +38,30 @@ div.well
                             | Wi-Fi
                         li.list-group-item
                             span.badge {{article.place.workPlaces.count}}
-                            | Work Places
+                            | Рабочие места
                         li.list-group-item
                             span.badge {{article.place.cells.count}}
-                            | Cell Networks
+                            | Сотовые сети
                         li.list-group-item
                             span.badge {{article.place.apartments.count}}
-                            | Apartments
-                        li.list-group-item
-                            span.badge {{article.place.guides.count}}
-                            | Personal Guides
+                            | Жилье
                         li.list-group-item
                             span.badge {{article.place.sights.count}}
-                            | Sights
+                            | Достопримечательности
                         li.list-group-item
                             span.badge {{article.place.tours.count}}
-                            | Tours
+                            | Туры и Экскурсии
                         li.list-group-item
                             span.badge {{article.place.shops.count}}
-                            | Shops
+                            | Магазины Рядом
+                        li.list-group-item
+                            span.badge {{article.place.guides.count}}
+                            | Персональные Гиды
                         li.list-group-item
                             span.badge {{article.place.users.count}}
-                            | Users There
+                            | Я был тут
 
-                    a.btn.btn-default(href="{{ article.tripadviserUrl }}", role="button") On TripAdviser
+                    a.btn.btn-default(href="{{ article.tripadviserUrl }}", role="button") TripAdviser
                     div.btn-group.open.share
                         a.btn.btn-info.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); article.isShareDropdownVisible = !article.isShareDropdownVisible;')
                             | Share

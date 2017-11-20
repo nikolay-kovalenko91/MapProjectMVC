@@ -19,20 +19,16 @@ var FoundedRoutesSpoilerComponent = (function () {
     }
     FoundedRoutesSpoilerComponent.prototype.showRoutes = function (placesForRouteSearch) {
         //this._searchRouteMainService.getRoutes();
+        var _this = this;
         this.foundedRoutes = [];
         this.sortPlaces(placesForRouteSearch); // fills this.placesForRouteSearch
         this.getPlacesPosition(this.placesForRouteSearch); // fills this.placesPositions
         var testfoundedRoutes = [];
         this._searchRouteMainService.getRoutes(this.placesPositions)
             .subscribe(function (res) {
-            testfoundedRoutes = res;
-            console.log(testfoundedRoutes);
+            _this.foundedRoutes = res;
+            console.log(_this.foundedRoutes);
         });
-        /*
-        for (let i = 0; i < this.placesForRouteSearch.length-1; i++) {
-            this.foundedRoutes.push(['Avia - S7 - 2h 30m - 500$ ->','Bus - EuroBus - 30h 10m - 320$ ->','Train - EuroTrain - 25h 10m - 420$ ->']);
-        }
-        */
     };
     FoundedRoutesSpoilerComponent.prototype.getPlacesPosition = function (placesForRouteSearch) {
         for (var i = 0; i < placesForRouteSearch.length - 1; i++) {

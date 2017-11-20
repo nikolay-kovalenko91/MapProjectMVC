@@ -30,16 +30,9 @@ export class FoundedRoutesSpoilerComponent {
         let testfoundedRoutes = [];
         this._searchRouteMainService.getRoutes(this.placesPositions)
             .subscribe(res => {
-                testfoundedRoutes = res;
-                console.log(testfoundedRoutes);
+                this.foundedRoutes = res;
+                console.log(this.foundedRoutes);
             });
-
-
-        /*
-        for (let i = 0; i < this.placesForRouteSearch.length-1; i++) {
-            this.foundedRoutes.push(['Avia - S7 - 2h 30m - 500$ ->','Bus - EuroBus - 30h 10m - 320$ ->','Train - EuroTrain - 25h 10m - 420$ ->']);
-        }
-        */
     }
 
     getPlacesPosition(placesForRouteSearch: any[]) {

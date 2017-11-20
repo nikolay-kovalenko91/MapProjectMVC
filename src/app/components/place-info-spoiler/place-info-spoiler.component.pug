@@ -11,55 +11,54 @@ div.panel.panel-primary.autocollapse#place-info(*ngIf='places.length >= 1')
                                 h6 Wi-Fi
                                 span 22
                             div.flex-element
-                                h6 Work Places
+                                h6 Рабочие места
                                 span 52
                             div.flex-element
-                                h6 Cell Networks
+                                h6 Сотовые сети
                                 span 2
                             div.flex-element
-                                h6 Apartments
+                                h6 Жилье
                                 span 62
                             div.flex-element
-                                h6 Personal Guides
-                                span 66
-                            div.flex-element
-                                h6 Sights
+                                h6 Достопримечательности
                                 span 21
                             div.flex-element
-                                h6 Tours
+                                h6 Туры и Экскурсии
                                 span 52
                             div.flex-element
-                                h6 Shops
+                                h6 Магазины рядом
                                 span 121
                             div.flex-element
-                                h6 Users There
+                                h6 Персональные гиды
+                                span 66
+                            div.flex-element
+                                h6 Я был тут
                                 span 66
                     div.place-social-interact
                         div.social-buttons
                             div.like-button-wrapper
                                 img.img-circle.special-img.like-button(src='https://cdn0.iconfinder.com/data/icons/basic-ui-elements-colored/700/08_heart-2-128.png')
-                                span.label.label-danger I Was There
                         div.social-share
                             div.btn-group.open.our-rate
                                 a.btn.btn-default.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); place.isRateDropdownVisible = !place.isRateDropdownVisible;')
-                                    | Our Rate
+                                    | Оценки
                                     span.caret
                                 ul.dropdown-menu(*ngIf="place.isRateDropdownVisible")
                                     li
-                                        a(href='#') Classic - 3.1
+                                        a(href='#') Классика - 3.1
                                     li
-                                        a(href='#') Romantic - 4.3
+                                        a(href='#') Романтика - 4.3
                                     li
-                                        a(href='#') Museums & Art - 2.8
+                                        a(href='#') Экскурсии - 2.8
                                     li
-                                        a(href='#') Perfomances - 1.0
+                                        a(href='#') Выступления - 1.0
                                     li
-                                        a(href='#') Active - 2.5
+                                        a(href='#') Активное - 2.5
                                     li
-                                        a(href='#') Extreme - 0.3
+                                        a(href='#') Экстрим - 0.3
                             div.btn-group.open.share
                                 a.btn.btn-default.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true', (click)='$event.preventDefault(); place.isShareDropdownVisible = !place.isShareDropdownVisible;')
-                                    | Share
+                                    | Поделиться
                                     span.caret
                                 ul.dropdown-menu(*ngIf="place.isShareDropdownVisible")
                                     li

@@ -7,7 +7,7 @@ div.map-wrapper
                 href='#',
                 *ngIf="!isGoBtnDisabled",
                 (click)=" onGoClick(); gMap.createPath(placesForRouteSearch);")
-                | Go!
+                |>
             a.btn.btn-success.dropdown-toggle(
                 href='#',
                 *ngIf="!isGoBtnDisabled",
@@ -24,40 +24,40 @@ div.modal#go-preferences(*ngIf='isGoPreferencesVisible')
         div.modal-content
             div.modal-header
                 button.close(type="button", data-dismiss="modal",aria-hidden="true", (click)='isGoPreferencesVisible = !isGoPreferencesVisible;') ×
-                h4.modal-title Preferences
+                h4.modal-title Настройки поиска
             div.modal-body
                 div.input-group
                     span.input-group-addon $
-                    input.form-control(type="text", placeholder="Max expences on road")
+                    input.form-control(type="text", placeholder="Бюджет")
                 div.col-lg-10
                     h6 Routes
                     div.radio
                         label
                             input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="checked")
-                            | All Routes
+                            | Все варианты
                     div.radio
                         label
                             input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="")
-                            | The Most Cheapest
+                            | Самый дешовый маршрут
                     div.radio
                         label
                             input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="")
-                            | The Most Shortest
+                            | Самый короткий маршрут
                 div.col-lg-10
                     h6 Transportation
                     div.radio
                         label
                             input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="")
-                            | Exclude Buses
+                            | Исключить автобусы
                     div.radio
                         label
                             input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="")
-                            | Exclude Airplanes
+                            | Исключить самолеты
                     div.radio
                         label
                             input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="")
-                            | Exclude Smth Else
+                            | Исключить ЖД-транспорт
 
             div.modal-footer
-                button.btn.btn-default(type="button", data-dismiss="modal", (click)='isGoPreferencesVisible = !isGoPreferencesVisible;') Close
-                button.btn.btn-primary(type="button", (click)=" onGoClick(); gMap.createPath(placesForRouteSearch); isGoPreferencesVisible = !isGoPreferencesVisible;") Go Next!
+                button.btn.btn-default(type="button", data-dismiss="modal", (click)='isGoPreferencesVisible = !isGoPreferencesVisible;') Закрыть
+                button.btn.btn-primary(type="button", (click)=" onGoClick(); gMap.createPath(placesForRouteSearch); isGoPreferencesVisible = !isGoPreferencesVisible;") Поиск!
